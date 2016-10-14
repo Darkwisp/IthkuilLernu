@@ -1,4 +1,4 @@
-function init(){
+function init(sentences){
 	
   for (s in sentences){
     var para = document.createElement("div");
@@ -53,6 +53,7 @@ function init(){
         
         var compcelltitle1 = document.createElement("TH"); 
         var t = document.createTextNode("Abbreviation");
+		compcelltitle1.style.color = "white"
         compcelltitle1.appendChild(t)
         
         comprow1.appendChild(compcelltitle1)
@@ -60,7 +61,7 @@ function init(){
         for (c in sentences[s].words[w].affixes[a].components){
         	var compcell = document.createElement("TD");
           var t = document.createTextNode(sentences[s].words[w].affixes[a].components[c].abv);
-
+			compcell.style.color = "white"
           compcell.appendChild(t)
           
           comprow1.appendChild(compcell)
@@ -69,6 +70,7 @@ function init(){
         
         var compcelltitle2 = document.createElement("TH"); 
         var t = document.createTextNode("Meaning");
+		compcelltitle2.style.color = "white"
         compcelltitle2.appendChild(t)
         
         comprow2.appendChild(compcelltitle2)
@@ -77,7 +79,7 @@ function init(){
         	var compcell = document.createElement("TD");
           var t = document.createTextNode(sentences[s].words[w].affixes[a].components[c].trans);
           compcell.appendChild(t)
-          
+          compcell.style.color = "white"
           comprow2.appendChild(compcell)
         }
         

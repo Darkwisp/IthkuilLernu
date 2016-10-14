@@ -127,8 +127,40 @@ div {
 }
 </style>
 
+<body></body>
+
+<meta charset="UTF-8">
 <script src = "./js/render.js"></script>
+<script src = "./langalyze.js"></script>
 <script>
+
 var sentences = []
-init()
+
+var sampleSentence = new sentence('An idiot dog')
+var sampleWord = sampleSentence.addWord('Idiot', true)
+var sampleAffix = sampleWord.addAffix('kš', 'Fool', true)
+var sampleComponent = sampleAffix.addComponent('-KŠ-','FOOL', true)
+var sampleAffix2 = sampleWord.addAffix('a', '...', true)
+var sampleComponent2 = sampleAffix2.addComponent('OBL','Neutral', true)
+var sampleAffix3 = sampleWord.addAffix('l', 'Single object', true)
+var sampleComponent3 = sampleAffix3.addComponent('/DEL/','Complete', true)
+var sampleComponent4 = sampleAffix3.addComponent('/M/','Alone - seen in the present', true)
+var sampleComponent5 = sampleAffix3.addComponent('/CSL/UNI-IFL','Real single independant entity', true)
+
+//Example with pushing
+sampleSentence.addWord('Dog')
+sampleSentence.pushAffix('by', 'Dog')
+sampleSentence.pushComponent('-BY-', 'DOG')
+sampleSentence.pushAffix('a', '...')
+sampleSentence.pushComponent('-OBL-', 'Neural')
+sampleSentence.pushAffix('l', 'Single entity')
+sampleSentence.pushComponent('/DEL/','Complete')
+sampleSentence.pushComponent('/M/','Alone - seen in the present')
+sampleSentence.pushComponent('/CSL/UNI-IFL','Real single independant entity')
+
+//P-p-parse that shit!
+sampleSentence.parse()
+sentences.push(sampleSentence)
+
+init(sentences)
 </script>
